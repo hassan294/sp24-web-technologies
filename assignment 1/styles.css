@@ -1,68 +1,157 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+
+
+.mainpage {
+  display: flex; 
+   flex-direction:row;
+  padding-left: 0px;
+  margin-left: 0px;
+ 
+
+
+}
+.leftside {
+  width: 27%;
+  background-color: #006B5D;
+  padding: 0.7cm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  float: left;
+color:white;
+
 }
 
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.rightside {
+  display: flex;
+  flex-direction: column;
+  background-color:#FFFFFF  ;
+  width: 73%;
+  float: left;
+  /* padding-left: 5px; */
+}
+img{
+   
+        width: 60%;
+        height: 30%;
+        margin-bottom: 0.7cm;
+        border-radius: 50%;
+        border: 0.15cm solid white;
+       
 }
 
-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
+  .line {
+    padding-bottom: 10px;
+    border-bottom: 0.07cm solid cadetblue;
+  }
+  h2 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+.boldText{
+  font-weight: bold;
+  border-left: 10px solid chocolate;
+  padding-left: 12px;
+ 
 
-h1 {
-    color: #333;
-}
 
-h2 {
-    color: #555;
 }
+        .details {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
 
-h3 {
-    color: #777;
-}
+        .boldText {
+            font-weight: bold;
+            border-left: 10px solid chocolate;
+            padding-left: 12px;
+        }
 
-.section {
-    margin-bottom: 30px;
-}
+        .lightText {
+            font-weight: lighter;
+            border-left: 2px solid white;
+            padding-left: 15px;
+            margin-left: 5px;
+        }
 
-.section h2 {
-    border-bottom: 2px solid #333;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-}
+        .topPanel {
+            width: 80%;
+            height: 15%;
+            background-color: white ;
+            /* border: 8px solid black; */
+           margin-left: 4px; 
+            border-radius: 5px;
+        }
 
-.section:last-child {
-    margin-bottom: 0;
-}
+        .topPanel h1 {
+            font-family: Garamond,Arial,Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 70px;
+            margin: 0;
+            padding-top: 40px;
+            padding-left: 180px ;
+        }
+/* 
+        .topPanel p {
+            font-family:  'Times New Roman', Times, serif;
+            font-size: medium;
+            margin: 0;
+            padding-left: 450px;
+            
+        } */
 
-.education-item h3 {
-    margin-bottom: 5px;
-}
+        .right h1 {
+            font-family: 'Times New Roman', Times, serif;
+            text-decoration: underline;
+            margin: 0;
+        }
 
-.education-item p {
-    margin: 5px 0;
-}
+        .right p {
+            font-family: calibri,Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+        }
+        .topPanel i{
+          float: right;
+          padding-top: 50px;
+          padding-right: 50px;
+          font-size: 150px;
+        }
+        .right{
 
-ul {
-    list-style-type: disc;
-    margin-left: 20px;
-}
+          padding-left: 10px;
+        }
 
-ul li {
-    margin-bottom: 5px;
-}
 
-p {
-    line-height: 1.5;
-}
+        .experience #a{
+          padding-left: 10px;
+          border-left: 3px solid black;
+          margin-left: 7px;
+
+        }
+
+
+
+        .rightline {
+          padding-bottom: 10px;
+          border-bottom: 0.07cm solid black;
+        }
+
+        .skill-meter label{
+
+
+          font-size: 15px;
+         font-family:   Helvetica, sans-serif;
+         font-weight:bold;
+        }
+
+        .line a {
+          font-size: 18px;
+      }
+      .line p {
+        font-size: 18px; 
+      }
