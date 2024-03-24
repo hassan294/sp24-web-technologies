@@ -1,101 +1,90 @@
-
-
 .mainpage {
-  display: flex; 
-   flex-direction:row;
+  display: flex;
+  flex-direction: row;
   padding-left: 0px;
   margin-left: 0px;
- 
-
-
 }
 .leftside {
   width: 27%;
-  background-color: #006B5D;
+  background-color: #006b5d;
   padding: 0.7cm;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: auto;
   float: left;
-color:white;
-
+  color: white;
 }
 
 .rightside {
   display: flex;
   flex-direction: column;
-  background-color:#FFFFFF  ;
+  background-color: #ffffff;
   width: 73%;
   float: left;
-  /* padding-left: 5px; */
 }
-img{
-   
-        width: 60%;
-        height: 30%;
-        margin-bottom: 0.7cm;
-        border-radius: 50%;
-        border: 0.15cm solid white;
-       
+img {
+  width: 60%;
+  height: 30%;
+  margin-bottom: 0.7cm;
+  border-radius: 50%;
+  border: 0.15cm solid white;
 }
 
-  .line {
-    padding-bottom: 10px;
-    border-bottom: 0.07cm solid cadetblue;
-  }
-  h2 {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
-  
-  .details {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-.boldText{
+.line {
+  padding-bottom: 10px;
+  border-bottom: 0.07cm solid cadetblue;
+}
+h2 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.boldText {
   font-weight: bold;
   border-left: 10px solid chocolate;
   padding-left: 12px;
- 
-
-
 }
-        .details {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-        }
+.details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
-        .boldText {
-            font-weight: bold;
-            border-left: 10px solid chocolate;
-            padding-left: 12px;
-        }
+.boldText {
+  font-weight: bold;
+  border-left: 10px solid chocolate;
+  padding-left: 12px;
+}
 
-        .lightText {
-            font-weight: lighter;
-            border-left: 2px solid white;
-            padding-left: 15px;
-            margin-left: 5px;
-        }
+.lightText {
+  font-weight: lighter;
+  border-left: 2px solid white;
+  padding-left: 15px;
+  margin-left: 5px;
+}
 
-        .topPanel {
-            width: 80%;
-            height: 15%;
-            background-color: white ;
-            /* border: 8px solid black; */
-           margin-left: 4px; 
-            border-radius: 5px;
-        }
+.topPanel {
+  width: 80%;
+  height: 15%;
+  background-color: white;
+  /* border: 8px solid black; */
+  margin-left: 4px;
+  border-radius: 5px;
+}
 
-        .topPanel h1 {
-            font-family: Garamond,Arial,Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            font-size: 70px;
-            margin: 0;
-            padding-top: 40px;
-            padding-left: 180px ;
-        }
+.topPanel h1 {
+  font-family: Garamond, Arial, Cambria, Cochin, Georgia, Times,
+    "Times New Roman", serif;
+  font-size: 70px;
+  margin: 0;
+  padding-top: 40px;
+  padding-left: 180px;
+}
 /* 
         .topPanel p {
             font-family:  'Times New Roman', Times, serif;
@@ -105,53 +94,46 @@ img{
             
         } */
 
-        .right h1 {
-            font-family: 'Times New Roman', Times, serif;
-            text-decoration: underline;
-            margin: 0;
-        }
+.right h1 {
+  font-family: "Times New Roman", Times, serif;
+  text-decoration: underline;
+  margin: 0;
+}
 
-        .right p {
-            font-family: calibri,Verdana, Geneva, Tahoma, sans-serif;
-            margin: 0;
-        }
-        .topPanel i{
-          float: right;
-          padding-top: 50px;
-          padding-right: 50px;
-          font-size: 150px;
-        }
-        .right{
+.right p {
+  font-family: calibri, Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+}
+.topPanel i {
+  float: right;
+  padding-top: 50px;
+  padding-right: 50px;
+  font-size: 150px;
+}
+.right {
+  padding-left: 10px;
+}
 
-          padding-left: 10px;
-        }
+.experience #a {
+  padding-left: 10px;
+  border-left: 3px solid black;
+  margin-left: 7px;
+}
 
+.rightline {
+  padding-bottom: 10px;
+  border-bottom: 0.07cm solid black;
+}
 
-        .experience #a{
-          padding-left: 10px;
-          border-left: 3px solid black;
-          margin-left: 7px;
+.skill-meter label {
+  font-size: 15px;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+}
 
-        }
-
-
-
-        .rightline {
-          padding-bottom: 10px;
-          border-bottom: 0.07cm solid black;
-        }
-
-        .skill-meter label{
-
-
-          font-size: 15px;
-         font-family:   Helvetica, sans-serif;
-         font-weight:bold;
-        }
-
-        .line a {
-          font-size: 18px;
-      }
-      .line p {
-        font-size: 18px; 
-      }
+.line a {
+  font-size: 18px;
+}
+.line p {
+  font-size: 18px;
+}

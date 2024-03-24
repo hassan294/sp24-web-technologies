@@ -1,0 +1,15 @@
+.form-control {
+  border-radius: 20px;
+}
+.form-inline {
+  border-radius: 20px;
+  background-color: antiquewhite;
+}
+.form-control {
+  border: 0px solid #ced4da;
+}
+
+.navbar {
+  font-size: 25px; /* Increase font size */
+  height: 100px; /* Increase height */
+}
