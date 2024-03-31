@@ -10,20 +10,19 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./css/contact.css" />
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
       crossorigin="anonymous"
     ></script>
-
-    <link rel="stylesheet" href="contact.css" />
   </head>
   <body>
     <div class="container-fluid contact-container">
       <div class="row">
         <div class="col-md-6 mx-auto">
           <h1 class="text-center">Contact Us</h1>
-          <form>
+          <form id="contactForm">
             <div class="mb-3">
               <label for="firstName" class="form-label">First Name</label>
               <input
@@ -71,69 +70,36 @@
                 placeholder="Enter your message"
               ></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              Submit
+            </button>
           </form>
         </div>
       </div>
     </div>
 
     <script>
-      $(document).ready(function () {
-        $("#contactForm").submit(function (event) {
-          event.preventDefault(); // Prevent the form from submitting
+      function doBindings() {
+        $("#submitBtn").on("click", handleFormSubmission);
+      }
 
-          // Validate form inputs
-          var firstName = $("#firstName").val();
-          var lastName = $("#lastName").val();
-          var email = $("#email").val();
-          var contactNumber = $("#contactNumber").val();
-          var message = $("#message").val();
+      $(doBindings);
 
-          if (firstName.trim() === "") {
-            alert("Please enter your first name.");
-            return;
-          }
-
-          if (lastName.trim() === "") {
-            alert("Please enter your last name.");
-            return;
-          }
-
-          if (email.trim() === "" || !isValidEmail(email)) {
-            alert("Please enter a valid email address.");
-            return;
-          }
-
-          if (
-            contactNumber.trim() === "" ||
-            !isValidPhoneNumber(contactNumber)
-          ) {
-            alert("Please enter a valid contact number.");
-            return;
-          }
-
-          if (message.trim() === "") {
-            alert("Please enter your message.");
-            return;
-          }
-
-          // If all validations pass, submit the form
-          // You can add your code here to submit the form data to a server
-          alert("Form submitted successfully!");
-        });
-
-        // Function to validate email format
-        function isValidEmail(email) {
-          var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          return emailPattern.test(email);
+      function handleFormSubmission(event) {
+        if (
+          $("#firstName").val() === "" ||
+          $("#lastName").val() === "" ||
+          $("#email").val() === "" ||
+          $("#contactNumber").val() === ""
+        ) {
+          $("#firstName").addClass("error");
+          $("#email").addClass("error");
+          $("#lastName").addClass("error");
+          $("#contactNumber").addClass("error");
+          alert("Please fill in all fields before submitting the form.");
+          event.preventDefault();
         }
-
-        // Function to validate phone number format (example)
-        function isValidPhoneNumber(phoneNumber) {
-          var phonePattern = /^\d{10}$/; // Assuming 10-digit phone number
-          return phonePattern.test(phoneNumber);
-        }
-      });
+      }
     </script>
   </body>
 </html>

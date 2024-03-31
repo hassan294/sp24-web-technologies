@@ -13,3 +13,11 @@
   font-size: 25px; /* Increase font size */
   height: 100px; /* Increase height */
 }
+
+.heading {
+  max-width: max-content;
+  grid-area: logo;
+  display: block;
+  position: relative;
+  font-size: 34px;
+}
