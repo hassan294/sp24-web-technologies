@@ -1,0 +1,103 @@
+.form-control {
+  border-radius: 20px;
+}
+.form-inline {
+  border-radius: 20px;
+  background-color: antiquewhite;
+}
+.form-control {
+  border: 0px solid #ced4da;
+}
+
+.navbar {
+  font-size: 25px; /* Increase font size */
+  height: 70px; /* Increase height */
+}
+
+.heading {
+  max-width: max-content;
+  grid-area: logo;
+  display: block;
+  position: relative;
+  font-size: 34px;
+}
+.contact-container {
+  background-image: url("./apiii.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.heading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
+  padding-top: 56px;
+  color: white;
+}
+
+.navbar-toggler {
+  background-color: white;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  margin-top: 5%;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#createText {
+  background-color: black;
+  color: white;
+}
+.form-control::placeholder {
+  color: white;
+}
+
+textarea.form-control {
+  background-color: black;
+  color: white;
+}
+
+textarea.form-control:focus {
+  background-color: black;
+  color: white;
+}
+
+textarea.form-control::placeholder {
+  color: white;
+}
+
+#createStory,
+.editbtn {
+  background-color: #cbdada;
+  color: black;
+  font-weight: 200;
+
+  border: 0px;
+  margin-top: 0.5%;
+}
+
+.delbtn {
+  background-color: #740505;
+  color: white;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+.ButtonApi {
+  display: flex;
+
+  align-items: baseline;
+}
+.ButtonApi button {
+  margin-right: 10px;
+}

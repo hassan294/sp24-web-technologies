@@ -21,3 +21,8 @@
   position: relative;
   font-size: 34px;
 }
+.contact-container {
+  background-image: url("../images/2nd main pic.jpg");
+  background-size: cover;
+  background-position: center;
+}
