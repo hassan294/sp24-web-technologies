@@ -1,0 +1,28 @@
+.form-control {
+  border-radius: 20px;
+}
+.form-inline {
+  border-radius: 20px;
+  background-color: antiquewhite;
+}
+.form-control {
+  border: 0px solid #ced4da;
+}
+
+.navbar {
+  font-size: 25px; /* Increase font size */
+  height: 100px; /* Increase height */
+}
+
+.heading {
+  max-width: max-content;
+  grid-area: logo;
+  display: block;
+  position: relative;
+  font-size: 34px;
+}
+.contact-container {
+  background-image: url("../images/2nd main pic.jpg");
+  background-size: cover;
+  background-position: center;
+}
