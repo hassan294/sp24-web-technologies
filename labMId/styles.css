@@ -1,0 +1,29 @@
+.TopImage {
+  background-image: url("top.webp");
+  background-position: center;
+}
+.logo {
+  display: block;
+  text-align: center;
+}
+.container-fluid {
+  height: 700px;
+  width: 100%;
+  overflow: hidden;
+}
+.images img {
+  width: 50%;
+  height: 50%;
+}
+
+.news h2 {
+  font-size: 24px;
+  color: lightblue;
+  font-weight: 500;
+}
+
+.news:after {
+  content: "";
+  color: lightblue;
+  width: 50%;
+}
