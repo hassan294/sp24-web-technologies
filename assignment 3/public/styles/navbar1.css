@@ -1,0 +1,73 @@
+.navbar-default {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+  text-transform: uppercase;
+}
+.navbar-default .navbar-brand {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:hover {
+  color: #000;
+  background-color: transparent;
+}
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:hover {
+  color: burlywood;
+  background-color: none;
+}
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+#main {
+  transition: margin-left 0.5s;
+  padding: 16px;
+}
+
+@media (max-width: 767px) {
+  .navbar-header {
+    text-align: center;
+  }
+  .navbar-brand {
+    float: none;
+    display: inline-block;
+    text-align: center;
+  }
+  .navbar-toggle {
+    float: left;
+    margin-left: 10px;
+    margin-right: 0;
+  }
+}

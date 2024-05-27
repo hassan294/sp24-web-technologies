@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= product.title %> - Product Details</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+        padding-top: 70px;
+      }
+      .product-details {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+      }
+      .product-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+      .product-info {
+        margin-left: 30px;
+        flex: 1;
+      }
+      .product-title,
+      .product-price,
+      .product-sizes {
+        margin-bottom: 20px;
+      }
+      .product-title h2,
+      .product-price h2,
+      .product-sizes h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      .product-price p,
+      .product-sizes select {
+        font-size: 20px;
+        color: #28a745;
+      }
+      .product-description h2 {
+        font-size: 24px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+      }
+      .product-description p {
+        font-size: 16px;
+      }
+      .quantity-control {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .quantity-control button {
+        border: none;
+        background: #ddd;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .quantity-control input {
+        width: 50px;
+        text-align: center;
+        margin: 0 10px;
+        font-size: 16px;
+      }
+      .add-to-cart {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .add-to-cart:hover {
+        background-color: #0056b3;
+      }
+      @media (max-width: 900px) {
+        .product-details {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .product-info {
+          margin-left: 0;
+          margin-top: 20px;
+        }
+      }
+      .success-banner1 {
+        /* position: absolute;
+        top: 0;
+        right: 0; */
+        margin-top: 3px;
+        background-color: #18b83d;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 14px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease-out;
+      }
+      .error-banner {
+        /* position: absolute;
+        top: 0;
+        right: 0;
+         */
+        display: none;
+        margin-top: 3px;
+        background-color: #dc3545;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 14px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease-out;
+      }
+      .visible {
+        display: block;
+        margin: 5px;
+        opacity: 1;
+        pointer-events: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('../public/components/navbar' ) %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 product-details">
+          <img
+            src="<%= product.imageUrl %>"
+            alt="<%= product.title %>"
+            class="product-image col-md-6"
+          />
+          <div class="product-info col-md-6">
+            <form id="add-to-cart-form" method="post">
+              <div class="product-title">
+                <h2>Name</h2>
+                <p><%= product.title %></p>
+              </div>
+              <div class="product-price">
+                <h2>Price</h2>
+                <p><%= product.comparePrice %></p>
+              </div>
+              <div class="product-sizes">
+                <h2>Available Sizes</h2>
+                <div class="btn-group" role="group">
+                  <% if (product.sizes && product.sizes.length) { %> <%
+                  product.sizes.forEach(function(size, index) { %>
+                  <button
+                    type="button"
+                    class="btn btn-secondary product-size"
+                    value="<%= size %>"
+                    data-index="<%= index %>"
+                  >
+                    <%= size %>
+                  </button>
+                  <% }); %> <% } else { %>
+                  <p>No sizes available</p>
+                  <% } %>
+                </div>
+              </div>
+              <div class="quantity-control">
+                <button type="button" id="decrease-quantity">-</button>
+                <input
+                  type="number"
+                  id="product-quantity"
+                  name="quantity"
+                  value="1"
+                  min="1"
+                />
+                <button type="button" id="increase-quantity">+</button>
+              </div>
+              <div class="error-banner">Please select a size</div>
+
+              <input
+                type="hidden"
+                name="productId"
+                value="<%= product._id %>"
+              />
+              <input type="hidden" id="selected-size" name="size" value="" />
+              <button type="submit" class="add-to-cart">Add to Cart</button>
+              <div class="success-banner1">Added to Cart Successfully</div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2 product-description">
+          <h2>Description</h2>
+          <p><%= product.description %></p>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        try {
+          var x = document.cookie;
+          var userid = x.split(";")[1].split("=")[1];
+          console.log("cookies ", x);
+        } catch (error) {
+          // window.location.href = "/login";
+        }
+
+        $("#decrease-quantity").click(function () {
+          var quantity = parseInt($("#product-quantity").val());
+          if (quantity > 1) {
+            $("#product-quantity").val(quantity - 1);
+          }
+        });
+
+        $("#increase-quantity").click(function () {
+          var quantity = parseInt($("#product-quantity").val());
+          $("#product-quantity").val(quantity + 1);
+        });
+
+        $(".product-size").click(function () {
+          $(".product-size")
+            .removeClass("btn-primary")
+            .addClass("btn-secondary");
+          $(this).removeClass("btn-secondary").addClass("btn-primary");
+          $("#selected-size").val($(this).val());
+        });
+
+        $("#add-to-cart-form").submit(function (event) {
+          event.preventDefault();
+
+          if (!x) {
+            window.location.href = "/login";
+          } else {
+            $.ajax({
+              url: $(this).attr("action"),
+              method: $(this).attr("method"),
+              data: { cartdata: $(this).serialize(), userid },
+              success: function (response) {
+                if (response.message === "Item added to cart") {
+                  $(".error-banner").removeClass("visible");
+
+                  $(".success-banner1").addClass("visible");
+                  setTimeout(function () {
+                    $(".success-banner1").removeClass("visible");
+                  }, 3000);
+                } else if (response.message === "please select size") {
+                  $(".success-banner1").removeClass("visible");
+                  $(".error-banner").addClass("visible");
+                  setTimeout(function () {
+                    $(".error-banner").removeClass("visible");
+                  }, 3000);
+                } else {
+                  console.log("response is ", response.message);
+                }
+              },
+              error: function () {
+                console.log("Error occurred while adding to cart.");
+              },
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

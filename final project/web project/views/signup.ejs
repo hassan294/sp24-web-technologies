@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/styles/signup.css" />
+    <style>
+      .error {
+        border: 1px solid red;
+      }
+
+      .error-message {
+        color: red;
+        font-size: 0.8rem;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <form id="signup-form" method="post">
+        <div class="title">
+          <h1>Sign Up Form</h1>
+        </div>
+        <div class="input-box">
+          <label for="firstName" class="label-color">First Name</label>
+          <input
+            id="firstName"
+            name="firstName"
+            type="text"
+            placeholder="Your First Name"
+            required
+          />
+          <br />
+          <label for="lastName" class="label-color">Last Name</label>
+          <input
+            id="lastName"
+            name="lastName"
+            type="text"
+            placeholder="Your Last Name"
+            required
+          />
+          <br />
+          <label for="email" class="label-color">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Your Email Address"
+            required
+          />
+
+          <br />
+          <label for="password" class="label-color">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Choose a Password"
+            required
+          />
+          <br />
+          <div id="error-message" style="color: red"></div>
+
+          <input type="submit" class="Signup" value="Sign Up" />
+          <br />
+          <p class="link-text">
+            Already have an account? <a href="/login">Login here</a>
+          </p>
+          <p class="link-text">
+            By signing up, you agree to our
+            <a href="#">Terms and Conditions</a>.
+          </p>
+        </div>
+      </form>
+    </div>
+    <script>
+      $(document).ready(() => {
+        $("#signup-form").submit(async (e) => {
+          e.preventDefault();
+
+          const formData = $(e.target).serialize();
+          try {
+            const response = await $.ajax({
+              type: "POST",
+              url: "/signup",
+              data: formData,
+              dataType: "json",
+            });
+
+            //   If signup successful, clear form and display success message
+            $("#signup-form")[0].reset();
+            $("#error-message").text("Signup successful!");
+            window.location.href = "/login";
+          } catch (error) {
+            let errorMessage;
+            if (error.responseJSON && error.responseJSON.message) {
+              errorMessage = error.responseJSON.message;
+            } else if (error.responseText) {
+              errorMessage = error.responseText;
+            } else {
+              errorMessage = "Something went wrong";
+            }
+            $("#error-message").text(errorMessage);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

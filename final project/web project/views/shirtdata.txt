@@ -1,0 +1,26 @@
+// Select the product card elements
+const productCards = document.querySelectorAll('.product-card');
+
+// Loop through each product card element
+productCards.forEach(productCard => {
+    // Extract product title
+    const title = productCard.querySelector('.product-card-title').textContent.trim();
+
+    // Extract image URL
+    const imageUrl = productCard.querySelector('.product-primary-image').getAttribute('src');
+
+    // Extract available sizes
+    const sizes = Array.from(productCard.querySelectorAll('.product-card-sizes--size span')).map(size => size.textContent);
+
+    // Extract prices
+    const comparePrice = productCard.querySelector('.compare-price del').textContent.trim();
+    const salePrice = productCard.querySelector('.price.on-sale').textContent.trim();
+
+    // Display product information
+    console.log('Title:', title);
+    console.log('Image URL:', imageUrl);
+    console.log('Available Sizes:', sizes);
+    console.log('Compare Price:', comparePrice);
+    console.log('Sale Price:', salePrice);
+    console.log('-------------------');
+});

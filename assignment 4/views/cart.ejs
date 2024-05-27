@@ -1,0 +1,263 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        padding-top: 70px;
+      }
+      .cart-container {
+        padding: 30px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+      }
+      .cart-item {
+        border-bottom: 1px solid #ddd;
+        padding: 15px 0;
+      }
+      .cart-item:last-child {
+        border-bottom: none;
+      }
+      .cart-item img {
+        max-width: 100px;
+        height: auto;
+        border-radius: 10px;
+      }
+      .cart-item-details {
+        margin-left: 20px;
+        flex: 1;
+      }
+      .cart-item-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .cart-item-price {
+        font-size: 18px;
+        color: #28a745;
+      }
+      .cart-item-quantity,
+      .cart-item-size {
+        font-size: 16px;
+      }
+      .total-price {
+        font-size: 24px;
+        font-weight: bold;
+        color: #28a745;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('../public/components/navbar') %>
+    <div class="container cart-container">
+      <h1>Your Shopping Cart</h1>
+      <% if (data.length > 0) { %> <% let totalPrice = 0; %> <%
+      data.forEach((cartItem, index) => { %> <% if (cartItem.productId) { %>
+      <div class="row cart-item">
+        <div class="col-md-2">
+          <img
+            src="<%= cartItem.productId.imageUrl %>"
+            alt="<%= cartItem.productId.title %>"
+          />
+        </div>
+        <div class="col-md-8 cart-item-details">
+          <div class="cart-item-title"><%= cartItem.productId.title %></div>
+          <div class="cart-item-price">
+            <%= (cartItem.productId.comparePrice) %>
+          </div>
+          <div class="cart-item-quantity">
+            Quantity: <%= cartItem.quantity %>
+          </div>
+          <div class="cart-item-size">Size: <%= cartItem.size %></div>
+        </div>
+        <div class="col-md-2 text-right">
+          <% totalPrice += Number(cartItem.productId.comparePrice) *
+          cartItem.quantity; %>
+        </div>
+      </div>
+      <% } else { %>
+      <div class="row cart-item">
+        <div class="col-md-12">
+          <p>Product not found</p>
+        </div>
+      </div>
+      <% } %> <% }) %>
+      <div class="row">
+        <div class="col-md-12 total-price">
+          Total Price: $<%= totalPrice.toFixed(2) %>
+        </div>
+      </div>
+      <% } else { %>
+      <p>Your cart is empty</p>
+      <% } %>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com /ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        padding-top: 70px;
+      }
+      .cart-container {
+        padding: 30px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+      }
+      .cart-item {
+        border-bottom: 1px solid #ddd;
+        padding: 15px 0;
+      }
+      .cart-item:last-child {
+        border-bottom: none;
+      }
+      .cart-item img {
+        max-width: 100px;
+        height: auto;
+        border-radius: 10px;
+      }
+      .cart-item-details {
+        margin-left: 20px;
+        flex: 1;
+      }
+      .cart-item-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .cart-item-price {
+        font-size: 18px;
+        color: #28a745;
+      }
+      .cart-item-quantity,
+      .cart-item-size {
+        font-size: 16px;
+      }
+      .total-price {
+        font-size: 24px;
+        font-weight: bold;
+        color: #28a745;
+        text-align: right;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <%- include('../public/components/navbar') %>
+    <div class="container cart-container">
+      <h1>Your Shopping Cart</h1>
+      <% if (data.length > 0) { %> <% let totalPrice = 0; %> <%
+      data.forEach((cartItem, index) => { %> <% if (cartItem.productId) { %>
+      <div class="row cart-item">
+        <div class="col-md-2">
+          <img
+            src="<%= cartItem.productId.imageUrl %>"
+            alt="<%= cartItem.productId.title %>"
+          />
+        </div>
+        <div class="col-md-8 cart-item-details">
+          <div class="cart-item-title"><%= cartItem.productId.title %></div>
+          <div class="cart-item-price">
+            <%= cartItem.productId.comparePrice %>
+          </div>
+          <div class="cart-item-quantity">
+            Quantity: <%= cartItem.quantity %>
+          </div>
+          <div class="cart-item-size">Size: <%= cartItem.size %></div>
+          <div class="cart-item-total-price">
+            <% //
+            <!-- Remove 'PKR ' and convert to float const -->
+            priceString = cartItem.productId.comparePrice.replace('PKR ',
+            '').replace(/,/g, ''); const price = parseFloat(priceString); const
+            itemTotalPrice = price * cartItem.quantity; %> <% if
+            (!isNaN(itemTotalPrice)) { %> Item Total Price: PKR<%=
+            itemTotalPrice.toFixed(2) %> <% } else { %>
+            <span style="color: red">Price Error</span>
+            <% } %>
+            <button
+              class="btn btn-danger delete-item"
+              data-id="<%= cartItem._id %>"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+        <div class="col-md-2 text-right">
+          <% if (!isNaN(itemTotalPrice)) { %> <% totalPrice += itemTotalPrice;
+          %> <% } %>
+        </div>
+      </div>
+      <% } else { %>
+      <div class="row cart-item">
+        <div class="col-md-12">
+          <p>Product not found</p>
+        </div>
+      </div>
+      <% } %> <% }) %>
+      <div class="row">
+        <div class="col-md-12 total-price">
+          Total Price: PKR<%= totalPrice.toFixed(2) %>
+        </div>
+      </div>
+      <% } else { %>
+      <p>Your cart is empty</p>
+      <% } %>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+      console.log("readtyyyy");
+      $(document).ready(() => {
+        let x = document.cookie;
+        let userid = x.split(";")[1].split("=")[1];
+        console.log("user id", userid);
+
+        try {
+          const response = $.ajax({
+            type: "GET",
+            url: "/cart",
+            data: { id: userid },
+            dataType: "json",
+          });
+        } catch (error) {
+          console.log("error is cart.ejs", error);
+        }
+        $(".delete-item").click(function () {
+          const cartItemId = $(this).data("id");
+          $.ajax({
+            type: "DELETE",
+            url: `/cart/${cartItemId}`,
+            success: function (response) {
+              window.location.reload();
+            },
+            error: function (error) {
+              console.log("Error deleting item:", error);
+            },
+          });
+        });
+      });
+      // console.log("response", response);
+      // document.cookie = `username=${response.data}`;
+      // document.cookie = `id=${response.id}`;
+    </script>
+  </body>
+</html>

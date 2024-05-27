@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="/styles/login.css" />
+  </head>
+  <body>
+    <div class="box">
+      <form id="sign-in" method="post">
+        <div class="title">
+          <h1>Login Form</h1>
+        </div>
+        <div class="input-box">
+          <label for="email" class="label-color"> User Name</label>
+          <input
+            id="email"
+            name="email"
+            type="Email"
+            placeholder="Email"
+            required
+          />
+          <br />
+          <label for="password" class="label-color"> Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Password"
+            required
+          />
+          <br />
+          <div id="error-message" style="color: red"></div>
+
+          <input type="submit" class="Login" value="Login" />
+          <br />
+          <p class="link-text">Forget password ? <a href="#">Click Here</a></p>
+          <p class="link-text">
+            Dont have an account ?
+            <a href="/signup">Click Here</a>
+          </p>
+        </div>
+      </form>
+    </div>
+    <script>
+      $(document).ready(() => {
+        $("#sign-in").submit(async (e) => {
+          console.log("prevent default");
+          e.preventDefault();
+
+          const formData = $(e.target).serialize();
+          try {
+            const response = await $.ajax({
+              type: "POST",
+              url: "/login",
+              data: formData,
+              dataType: "json",
+            });
+            console.log("response", response);
+            document.cookie = `username=${response.data}`;
+            document.cookie = `id=${response.id}`;
+
+            //   If signup successful, clear form and display success message
+            $("#sign-in")[0].reset();
+            $("#error-message").text("Sign-in successful!");
+            window.location.href = "/";
+          } catch (error) {
+            let errorMessage;
+            if (error.responseJSON && error.responseJSON.message) {
+              errorMessage = error.responseJSON.message;
+            } else if (error.responseText) {
+              errorMessage = error.responseText;
+            } else {
+              errorMessage = "Something went wrong";
+            }
+            $("#error-message").text(errorMessage);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

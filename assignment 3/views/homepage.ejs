@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>How to create Bootstrap Vertical Carousel</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/styles/homepage.css" />
+  </head>
+  <body>
+    <%- include('../public/components/navbar' ) %>
+
+    <div
+      id="myCarousel"
+      class="myslide carousel slide"
+      id=" carousel-example-generic "
+      data-ride="carousel"
+    >
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="./images/nimble-made-7RIMS-NMsbc-unsplash.jpg" alt="" />
+          <div class="carousel-caption"></div>
+        </div>
+        <div class="item">
+          <img
+            src="./images/WhatsApp Image 2024-05-13 at 2.21.39 AM.jpeg"
+            alt=""
+          />
+          <div class="carousel-caption"></div>
+        </div>
+        <div class="item">
+          <img
+            src="./images/shirt-mockup-concept-with-plain-clothing.jpg"
+            alt=""
+          />
+          <div class="carousel-caption"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+      // Keydown event for arrow keys
+      document.addEventListener("keydown", function (event) {
+        if (event.keyCode === 37 || event.keyCode === 38) {
+          // Left arrow key
+          $("#myCarousel").carousel("prev");
+        } else if (event.keyCode === 39 || event.keyCode === 40) {
+          // Right arrow key
+          $("#myCarousel").carousel("next");
+        }
+      });
+      src = "homepage.js";
+    </script>
+  </body>
+</html>

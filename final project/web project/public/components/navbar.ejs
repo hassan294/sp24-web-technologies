@@ -1,0 +1,104 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+/>
+
+<link rel="stylesheet" href="/styles/navbar.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+  .success-banner {
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    width: 200px;
+    transform: translateX(10px);
+    background-color: red;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  }
+
+  .hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle menubtn" id="sidebarToggle">
+        ☰ Menu
+      </button>
+    </div>
+    <div class="heading"><a class="navbar-brand" href="/">Heritage</a></div>
+    <div class="items" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/shirts?page=1&limit=10">Shirts</a></li>
+        <li><a href="/T-shirts?page=1&limit=10">T-Shirts</a></li>
+        <li><a href="#">Pants</a></li>
+        <li><a href="#">Contact us</a></li>
+      </ul>
+    </div>
+    <ul class="nav navbar-right icons">
+      <li>
+        <a href="/login">
+          <i class="fa-regular fa-user" style="color: #000000"></i>
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" id="cartid">
+          <i class="fa-solid fa-cart-shopping" style="color: #000000"></i>
+        </a>
+        <div class="success-banner hidden">Please login first to view cart</div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="/shirts">Shirts</a>
+  <a href="/T-shirts">T-Shirts</a>
+  <a href="#">Pants</a>
+  <a href="#">Contact us</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(() => {
+    try {
+      x = document.cookie;
+      var userid = x.split(";")[1].split("=")[1];
+      document.getElementById("cartid").href = `/cart/${userid}`;
+    } catch (error) {
+      $("#cartid").click(() => {
+        $(".success-banner").removeClass("hidden").addClass("visible");
+        console.log("no user id");
+        setTimeout(function () {
+          $(".success-banner").removeClass("visible").addClass("hidden");
+        }, 3000);
+      });
+    }
+
+    // console.log("document ready");
+
+    console.log("user id ", userid);
+  });
+</script>
+<script src="scripts/navbar.js"></script>

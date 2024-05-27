@@ -1,0 +1,160 @@
+.heading {
+  /* move heading to left */
+  float: left;
+  width: 10%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+.navbar-header {
+  /* remove space of menu button */
+  display: none;
+}
+.menubtn {
+  display: none;
+}
+.navbar-default {
+  /* navbar styling */
+  background-color: white !important;
+  border-color: transparent !important;
+}
+
+.navbar-default .navbar-nav > li > a {
+  /* list of items styling */
+
+  color: black;
+  text-transform: uppercase;
+}
+
+.navbar-default .navbar-brand {
+  color: #000;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:hover {
+  color: #000;
+  background-color: transparent;
+}
+
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:hover {
+  color: burlywood;
+  background-color: none;
+}
+
+.navbar-brand {
+  flex: 1;
+  text-align: left;
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: right;
+}
+
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-nav {
+  display: flex;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1100; /* Increase the z-index */
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.items {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+.icons {
+  width: 10%;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 1000px) {
+  .navbar-header {
+    display: inline;
+    margin: 0%;
+  }
+  .navbar-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 1000px) {
+  .container-fluid {
+    display: flex;
+    padding-left: 0;
+    padding-right: 0;
+
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-header {
+    display: flex;
+    align-items: center;
+
+    margin: 0px;
+    float: left;
+  }
+  .menubtn {
+    display: flex;
+    float: left;
+    margin-left: 0px;
+    margin-right: 0;
+  }
+
+  .navbar-brand {
+    align-items: center;
+    width: 100%;
+    margin: 0;
+  }
+
+  .navbar-nav {
+    display: none; /* Hide the navbar items on smaller screens */
+  }
+
+  .items {
+    display: none !important;
+  }
+  .icons {
+    align-items: center;
+  }
+}
